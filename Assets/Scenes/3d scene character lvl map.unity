@@ -1568,7 +1568,7 @@ MonoBehaviour:
   groundChecker: {fileID: 0}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!136 &1897116891
 CapsuleCollider:
   m_ObjectHideFlags: 0
