@@ -33,9 +33,9 @@ public class Character : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
 
-        musicPlayer.clip = backgroundMusic;
-        musicPlayer.loop = true;
-        musicPlayer.Play();
+       // musicPlayer.clip = backgroundMusic;
+        //musicPlayer.loop = true;
+        //musicPlayer.Play();
     }
 
     // Update is called once per frame
@@ -45,15 +45,19 @@ public class Character : MonoBehaviour
         
         
         
-       transform.position = transform.position + (transform.forward * Input.GetAxis("Vertical"));
+       transform.position = transform.position + (transform.forward * Input.GetAxis("Vertical") * Time.deltaTime * 3f);
 
        isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groundLayer);
+
+                 Debug.Log(isOnGround);
+
        if (isOnGround == true && Input.GetKeyDown(KeyCode.Space))
        {
+
          myRigidbody.AddForce(transform.up * jumpForce);
        }
     
-       Debug.Log("OnGround");
+       //Debug.Log("OnGround");
        
        Vector3 newVelocity = transform.forward * Input.GetAxis("Vertical") * maxSpeed;
        myRigidbody.velocity = new Vector3(newVelocity.x, myRigidbody.velocity.y, newVelocity.z);
