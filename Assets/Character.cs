@@ -48,6 +48,7 @@ public class Character : MonoBehaviour
        transform.position = transform.position + (transform.forward * Input.GetAxis("Vertical") * Time.deltaTime * 3f);
 
        isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groundLayer);
+<<<<<<< Updated upstream:Assets/Character.cs
 
                  Debug.Log(isOnGround);
 
@@ -58,6 +59,12 @@ public class Character : MonoBehaviour
        }
     
        //Debug.Log("OnGround");
+=======
+       if (isOnGround == true && Input.GetKeyDown(KeyCode.Space))
+       {
+         myRigidBody.AddForce(transform.up * jumpForce)
+       }
+>>>>>>> Stashed changes:Assets/CharacterController.cs
        
        Vector3 newVelocity = transform.forward * Input.GetAxis("Vertical") * maxSpeed;
        myRigidbody.velocity = new Vector3(newVelocity.x, myRigidbody.velocity.y, newVelocity.z);
